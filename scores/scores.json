@@ -1,0 +1,81 @@
+{
+  "idToTestNameHash": {
+    "ReFuTe1": "src/render-functions.spec.js > Render Functions Tests > renderStatus - Good Version: updates and returns the the status div with h2 and p tag information",
+    "ReFuTe2": "src/render-functions.spec.js > Render Functions Tests > renderStatus - Bad Link Version: updates and returns the the status div with h2 and p tag information",
+    "ReFuTe3": "src/render-functions.spec.js > Render Functions Tests > renderUsers - updates and returns the usersUl with li tags for each user",
+    "ReFuTe4": "src/render-functions.spec.js > Render Functions Tests > renderUsers - clears the html each time so multiple calls don't duplicate users",
+    "ReFuTe5": "src/render-functions.spec.js > Render Functions Tests > renderPosts - updates and returns the postsUl with li tags for each post",
+    "ReFuTe6": "src/render-functions.spec.js > Render Functions Tests > renderPosts - clears the html each time so multiple calls don't duplicate posts",
+    "ReFuTe7": "src/render-functions.spec.js > Render Functions Tests > renderNewUser - updates and returns the newUserDiv with h2 and p tag information",
+    "FeFuTe1": "src/fetch-functions.spec.js > Fetch Function Tests > checkResponseStatus - returns a promise and fetches the right url",
+    "FeFuTe2": "src/fetch-functions.spec.js > Fetch Function Tests > checkResponseStatus",
+    "FeFuTe3": "src/fetch-functions.spec.js > Fetch Function Tests > getUsers - returns a promise and fetches the right url",
+    "FeFuTe4": "src/fetch-functions.spec.js > Fetch Function Tests > getUsers - returns the users",
+    "FeFuTe5": "src/fetch-functions.spec.js > Fetch Function Tests > getUserPosts - returns a promise and fetches the right url",
+    "FeFuTe6": "src/fetch-functions.spec.js > Fetch Function Tests > getUserPosts - only returns the first 3 posts",
+    "FeFuTe7": "src/fetch-functions.spec.js > Fetch Function Tests > createNewUser - returns a promise and fetches the right url",
+    "FeFuTe8": "src/fetch-functions.spec.js > Fetch Function Tests > createNewUser - returns the new user",
+    "ApTe1": "src/app.spec.js > App Tests > app - renders the right status",
+    "ApTe2": "src/app.spec.js > App Tests > app - renders the right users",
+    "ApTe3": "src/app.spec.js > App Tests > app - only renders posts once a button has been clicked",
+    "ApTe4": "src/app.spec.js > App Tests > app - creates and renders a new user on form submission",
+    "ReFuTe8": "src/render-functions.spec.js > Render Functions Tests > renderNewUser - clears the html each time so multiple calls don't duplicate users"
+  },
+  "testNameToIdHash": {
+    "src/render-functions.spec.js > Render Functions Tests > renderStatus - updates and returns the the status div with h2 and p tag information": "ReFuTe1",
+    "src/render-functions.spec.js > Render Functions Tests > renderUsers - updates and returns the usersUl with li tags for each user": "ReFuTe3",
+    "src/render-functions.spec.js > Render Functions Tests > renderUsers - clears the html each time so multiple calls don't duplicate users": "ReFuTe4",
+    "src/render-functions.spec.js > Render Functions Tests > renderPosts - updates and returns the postsUl with li tags for each post": "ReFuTe5",
+    "src/render-functions.spec.js > Render Functions Tests > renderPosts - clears the html each time so multiple calls don't duplicate posts": "ReFuTe6",
+    "src/render-functions.spec.js > Render Functions Tests > renderNewUser - updates and returns the newUserDiv with h2 and p tag information": "ReFuTe7",
+    "src/render-functions.spec.js > Render Functions Tests > renderNewUser - clears the html each time so multiple calls don't duplicate users": "ReFuTe8",
+    "src/fetch-functions.spec.js > Fetch Function Tests > checkResponseStatus - returns a promise and fetches the right url": "FeFuTe1",
+    "src/fetch-functions.spec.js > Fetch Function Tests > checkResponseStatus": "FeFuTe2",
+    "src/fetch-functions.spec.js > Fetch Function Tests > getUsers - returns a promise and fetches the right url": "FeFuTe3",
+    "src/fetch-functions.spec.js > Fetch Function Tests > getUsers - returns the users": "FeFuTe4",
+    "src/fetch-functions.spec.js > Fetch Function Tests > getUserPosts - returns a promise and fetches the right url": "FeFuTe5",
+    "src/fetch-functions.spec.js > Fetch Function Tests > getUserPosts - only returns the first 3 posts": "FeFuTe6",
+    "src/fetch-functions.spec.js > Fetch Function Tests > createNewUser - returns a promise and fetches the right url": "FeFuTe7",
+    "src/fetch-functions.spec.js > Fetch Function Tests > createNewUser - returns the new user": "FeFuTe8",
+    "src/app.spec.js > App Tests > app - renders the right status": "ApTe1",
+    "src/app.spec.js > App Tests > app - renders the right users": "ApTe2",
+    "src/app.spec.js > App Tests > app - only renders posts once a button has been clicked": "ApTe3",
+    "src/app.spec.js > App Tests > app - creates and renders a new user on form submission": "ApTe4",
+    "src/render-functions.spec.js > Render Functions Tests > renderStatus - Good Version: updates and returns the the status div with h2 and p tag information": "ReFuTe1",
+    "src/render-functions.spec.js > Render Functions Tests > renderStatus - Bad Link Version: updates and returns the the status div with h2 and p tag information": "ReFuTe2"
+  },
+  "testScores": {
+    "Render Functions Tests": {
+      "ReFuTe1": 0,
+      "ReFuTe2": 0,
+      "ReFuTe3": 0,
+      "ReFuTe4": 0,
+      "ReFuTe5": 0,
+      "ReFuTe6": 0,
+      "ReFuTe7": 0,
+      "ReFuTe8": 0
+    },
+    "Fetch Function Tests": {
+      "FeFuTe1": 0,
+      "FeFuTe2": 0,
+      "FeFuTe3": 0,
+      "FeFuTe4": 0,
+      "FeFuTe5": 0,
+      "FeFuTe6": 0,
+      "FeFuTe7": 0,
+      "FeFuTe8": 0
+    },
+    "App Tests": {
+      "ApTe1": 0,
+      "ApTe2": 0,
+      "ApTe3": 0,
+      "ApTe4": 0
+    }
+  },
+  "humanReadable": {
+    "Render Functions Tests": "0/8",
+    "finalTestScore": "FINAL SCORE: 0/20",
+    "Fetch Function Tests": "0/8",
+    "App Tests": "0/4"
+  }
+}

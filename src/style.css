@@ -1,0 +1,44 @@
+:root {
+  --white: #FFFCF7;
+  --black: #261F1D;
+  --gray: #E1E3E0;
+  --blue: #2F5A8B;
+  --yellow: #EEBC32;
+  --green: #327A5F;
+}
+
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--gray);
+}
+
+button {
+  background-color: var(--white);
+  border: 2px solid var(--black);
+  box-shadow: 0.3rem 0.3rem 0 var(--black);
+  color: var(--black);
+  margin: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+button:active {
+  border: 2px solid var(--yellow);
+  transform: translate(2px, 2px);
+  box-shadow: 0.1rem 0.1rem 0 var(--black);
+}
+
+li {
+  list-style-type: none;
+  padding: 0;
+}
+
+#users-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  max-width: 60rem;
+  margin: 1rem auto;
+}
