@@ -79,8 +79,32 @@ export const renderUsers = (usersUl, users) => { //users is the arr of objs that
  })
 };
 
-export const renderPosts = () => {
-}
+/* QUESTION 7
+FUNCTION ARGS:
+ postsUl: an HTMLElement of a ul that this func will add lis to, one for each post
+ posts: an arr of post (as in "blog posts") objs, each one will have an id, title, and body attribute
+EXPECTED FUNCTION OUTPUT:
+<!--  where posts = [{ id: 1, title: 'My title', body: 'lorem ipsum...' }, { id: 2, title: 'My title', body: 'lorem ipsum...' }, etc...] -->
+<li>
+ <h2>My title</h2>
+ <p> lorem ipsum...</p>
+</li>
+*/
+export const renderPosts = (postsUl, posts) => { //posts is the arr of objs that our getUserPosts() func returns
+  postsUl.innerHTML = ''; //clearing the posts ul to render a new post on 'click' listener later
+  posts.forEach((post) => { //iterating over each user's post obj
+    const li = document.createElement('li');
+    
+    const h2 = document.createElement('h2');
+    h2.textContent = post.title; //post.title is already a str so no need to do string interpolation
+    
+    const p = document.createElement('p');
+    p.textContent = post.body;
+    
+    li.append(h2, p);
+    postsUl.appendChild(li);
+ })
+};
 
 export const renderNewUser = () => {
 }
