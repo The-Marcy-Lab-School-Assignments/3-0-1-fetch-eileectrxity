@@ -85,5 +85,40 @@ export const getUserPosts = (userId, maxNumPosts = 3) => {
  .catch((err) => console.error(`getUserPosts() error! Message: ${err.message}`))
 };
 
-export const createNewUser = () => {
+
+/* QUESTION 4: use the following to pass the test
+ URL = https://jsonplaceholder.typicode.com/users
+ HTTP VERB = POST
+ FUNCTION ARGS: (newUserData: an obj containing a username and email property as strs)
+ FUNCTION RETURN: a promise containing an new user obj of the given username and email properties from the newUserData obj passed in + a new user id property assigned by the API (we don't have to assign it)
+ NOTE: since this API is a mock and doesn't persist data/save our data, the id returned will always be 11 for testing purposes- this is ok, we're just practicing POSTing data with fetch
+*/ //q4 working solution with comments- IGNORE
+// export const createNewUser = (newUserData) => {
+//   console.log('new user data:', newUserData); //logging the initial data, an obj with a user name and email property but no id property
+//   return fetch(userUrl, { //as the 2nd arg, using fetch API's options obj to configure HTTP request for POST method- in short, just making a POST request to the specified url
+//     method: 'POST', //explicitly setting the HTTP method, noting that fetch with no options defined uses GET method by default
+//     headers: { //defining metadata about the request providing addt'l instructions on how the server should handle the request/incoming data
+//       'Content-Type': 'application/json', //specifying the type of content aka data format we're sending in our POST request (JSON) so the server knows what to expect + how to parse it
+//     },
+//     body: JSON.stringify(newUserData), //converting the actual data obj to JSON to be sent + transmitted in the body of the request- essentially posting the passed in new user info to the server's API/database
+//   })
+//     .then((response) => response.json()) //parsing the resolved JSON response from the server + converting it back to a JS obj (the server is the one hosting the API url, to be clear)
+//     .then((newUser) => { //handling the parsed response, which now includes the 'id' assigned by the server
+//       console.log('user data after posting:', newUserData) //to help me visualize- logging the original data, unchanged with no id property
+//       console.log('posted user:', newUser) //logging the response: same as newUserData obj plus the id finally assigned + returned by the server
+//       return newUser
+//     })
+//     .catch((err) => console.error(`createNewUser() error! Message: ${err.message}`)) //catches and logs any errors that occur during the fetch request
+// }
+
+//q4 solution simplified without comments
+export const createNewUser = (newUserData) => {
+  return fetch(userUrl, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(newUserData),
+ })
+ .then((response) => response.json())
+ .then((newUser) => newUser)
+ .catch((err) => console.error(`createNewUser() error! Message: ${err.message}`))
 }
