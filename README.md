@@ -20,8 +20,8 @@
 
 In this assignment we're going to use the free, open source, practice API https://jsonplaceholder.typicode.com. We're going to use the users and posts endpoints to list users, list a users posts, and then create a (fake) new user! We'll also practice rendering our results.
 
-
 ## Before you begin
+
 Remember, we're using Vite! So clone down your repo and run:
 
 ```bash
@@ -32,20 +32,23 @@ npm run dev
 That will start Vite's dev server which will automatically update your page any time you save your files.
 
 # Short Answers
-DO THESE FIRST! I know we say that just about every time, but this time it will make your work *much* easier. The question prompts below are more bare-bones than what your used to. This is on purpose, as we push you to rely less on us, and more on what you learned and the test suites. The short answers will help you understand what the code questions are asking.
+
+DO THESE FIRST! I know we say that just about every time, but this time it will make your work _much_ easier. The question prompts below are more bare-bones than what your used to. This is on purpose, as we push you to rely less on us, and more on what you learned and the test suites. The short answers will help you understand what the code questions are asking.
 
 **Please do the short answers first!**
 
 # async/await vs .then
+
 We know you may know how to use `async/await` syntax already, but we're going to use `.then` syntax for this assignment. Why? Because we want you to understand promises deeply, and also why we invented better syntax! We'll be using `async/await` in the next assignment, so don't worry, you'll get to practice that too.
 
 # Section 1 - Fetching the data
+
 First things first, we need to fetch our data. in `main.js` you can see we're logging the functions already. As you fill them out, uncomment them to check your progress (and of course use the tests too!).
 
 Fill out your answers in `fetch-functions.js` and run the tests in `fetch-functions.spec.js`
 
-
 ## Question 1 - checkResponseStatus
+
 - URL = https://jsonplaceholder.typicode.com/users
 - HTTP VERB = GET
 - FUNCTION ARGS: None
@@ -53,6 +56,7 @@ Fill out your answers in `fetch-functions.js` and run the tests in `fetch-functi
   - A promise containing the fetch response's `status`, `ok`, and `url` properties
 
 ## Question 2 - getUsers
+
 - URL = https://jsonplaceholder.typicode.com/users
 - HTTP VERB = GET
 - FUNCTION ARGS: None
@@ -60,6 +64,7 @@ Fill out your answers in `fetch-functions.js` and run the tests in `fetch-functi
   - A promise containing an array of users
 
 ## Question 3 - getUserPosts
+
 - URL = https://jsonplaceholder.typicode.com/users/{userId}/posts
 - HTTP VERB = GET
 - FUNCTION ARGS: (userId: number, maxNumPosts: number - default to 3)
@@ -67,16 +72,17 @@ Fill out your answers in `fetch-functions.js` and run the tests in `fetch-functi
   - A promise containing an array of posts that belong to the given user, as identified by their id number. There are LOTS of posts, but you must limit the number by `maxNumPosts`, with a default value of 3.
 
 ## Question 4 - createNewUser
+
 - URL = https://jsonplaceholder.typicode.com/users
 - HTTP VERB = POST
 - FUNCTION ARGS: (newUserData: an object containing a `username` and `email` properties, both strings)
 - FUNCTION RETURN:
-  - A promise containing an new `user` object. The object should contain the given `username` and `email` properties from the `newUserData` object you passed in, but *also* the API should assign you a new id.
+  - A promise containing an new `user` object. The object should contain the given `username` and `email` properties from the `newUserData` object you passed in, but _also_ the API should assign you a new id.
   - NOTE: since this API isn't really saving our data, the id passed back will always just be `11`, but that's fine for us, we're just practicing `POST`ing data with fetch!
 
-
 # Section 2 - Rendering functions
-Once you get your data, you actually have to use it. Now, there are 2 steps: first you need to make the rendering functions, and **then** you need to use them. We'll test using them in section 3, for this section, ***just write the functions in `render-functions.js`.***
+
+Once you get your data, you actually have to use it. Now, there are 2 steps: first you need to make the rendering functions, and **then** you need to use them. We'll test using them in section 3, for this section, **_just write the functions in `render-functions.js`._**
 
 Note that we already have a `setupPageBasics` function. Don't touch it, that's just a helper to make sure our page is always setup correctly via JS (instead of html). This is how real frameworks tend to do it, as you can't typically write raw HTML. You have to do everything in JS!
 
@@ -85,11 +91,13 @@ Remember, HTML doesn't care about white space. So our examples below are nicely 
 **You may need to review some of your DOM manipulation methods, that's alright!**
 
 ## Question 5 - renderStatus
+
 - FUNCTION ARGS
   - statusDiv: an `html element` of a `div`, this is what the function will modify
   - statusInfoObj: an object with `url`, `status`, and `ok` properties. `url` is a string, `status` is a http status number, and `ok` is a boolean
 
 The function should create in the given div the following html:
+
 - h2 tag
   - This will have an `id` of 'status-heading' and text content of "Info on - [url]"
 - p tag
@@ -105,12 +113,15 @@ The function should create in the given div the following html:
 ```html
 <!-- This is an example output -->
 <div>
-  <h2 id="status-heading">Info on - https://jsonplaceholder.typicode.com/usersasda</h2>
+  <h2 id="status-heading">
+    Info on - https://jsonplaceholder.typicode.com/usersasda
+  </h2>
   <p id="status-code">Status code: 404, FAIL!</p>
 </div>
 ```
 
 ## Question 6 - renderUsers
+
 - FUNCTION ARGS
   - usersUl: an `HTMLElement` of a `ul` that this function will add new `li`s to, one for each user in the array
   - users: an `array` of `user` objects, each will have a LOT of properties from the API, but the only ones we care about for this function are `username` and `id`
@@ -125,6 +136,7 @@ This function will mutate the given `ul` by creating `li`s with `button` element
 ```
 
 ## Question 7 - renderPosts
+
 - FUNCTION ARGS
   - postsUl: an `HTMLElement` of a `ul` that this function will add `li`s to, one for each post
   - posts: an array of `post` (as in "blog posts") objects, each one will have an `id`, `title`, and `body` attribute.
@@ -135,13 +147,14 @@ This function works just like render users, but it makes posts instead. It will 
 <!-- for a post: { id: 1, title: 'My title', body: 'lorem ipsum...' } -->
 <li>
   <h2>My title</h2>
-  <p> lorem ipsum...</p>
+  <p>lorem ipsum...</p>
 </li>
 ```
 
 Note: all the titles and bodies of the api are fake latin gibberish.
 
 ## Question 8 - renderNewUser
+
 - FUNCTION ARGS
   - newUserDiv: an `HTMLElement` of a `div` that we will mutate and add our `newUserInfo`
   - newUserInfo: an object with at least a `username` and `email` property, both are strings
@@ -154,11 +167,12 @@ This function is real simple! No arrays, just mutate the div to have an `h2` and
 <p>chuck@gmail.com</p>
 ```
 
-
 ## innerHTML vs nodes
-So this is a crucial question: can you just set the `innerHTML` or do you need to create isolated nodes one by one? The answer is: can you trust the data? If you *know* the data isn't user generated (like status codes) then `innerHTML` is ok, but if you're ever entering text that *could've* come from a user, use nodes for safety. No malicious JS is going to sneak into our pages!
+
+So this is a crucial question: can you just set the `innerHTML` or do you need to create isolated nodes one by one? The answer is: can you trust the data? If you _know_ the data isn't user generated (like status codes) then `innerHTML` is ok, but if you're ever entering text that _could've_ come from a user, use nodes for safety. No malicious JS is going to sneak into our pages!
 
 # Section 3 - App
+
 Ok, last part! The final test is putting everything together, these are called "integration" tests. Your job is now going to be filling out the `app` function in `app.js`. We already call it for you in `main.js`, so you should see your main page update with your changes.
 
 Let's also mix things up: instead of listing questions one by one, let's use "User Stories" (which are of course backed up by tests) for this final section. Use all the fetch and render functions we just made!
@@ -181,6 +195,6 @@ OK! This is a lot to think about, but you can do it! Just remember to move slowl
 
 ## Testing API Calls
 
-A quick note about the tests. We're faking our network calls with a library called `nock`. You don't make real network calls in tests, that's unreliable and slow. Unfortunately, `nock` gives pretty garbage error messages. `nock` will fail your test if you try to make a request for a route we haven't faked. Make *sure* each fetch function only fetches *once* and the url is exactly correct, ok?
+A quick note about the tests. We're faking our network calls with a library called `nock`. You don't make real network calls in tests, that's unreliable and slow. Unfortunately, `nock` gives pretty garbage error messages. `nock` will fail your test if you try to make a request for a route we haven't faked. Make _sure_ each fetch function only fetches _once_ and the url is exactly correct, ok?
 
 Also, if you want to console log things in your tests, don't forget to scroll up in the terminal to see the log output!

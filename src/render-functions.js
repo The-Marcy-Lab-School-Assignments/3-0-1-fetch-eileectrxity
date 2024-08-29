@@ -1,5 +1,5 @@
 export const setupPageBasics = (parentEl) => {
-    parentEl.innerHTML = `
+  parentEl.innerHTML = `
       <h1>Intro To Fetch!</h1>
       <div id='status'></div>
       <div id='users'>
@@ -21,13 +21,13 @@ export const setupPageBasics = (parentEl) => {
       <div id='new-user'></div>
     `;
 
-    const statusDiv = parentEl.querySelector('#status');
-    const usersUl = parentEl.querySelector('#users-list');
-    const postsUl = parentEl.querySelector('#posts-list');
-    const newUserForm = parentEl.querySelector('#new-user-form');
-    const newUserDiv = parentEl.querySelector('#new-user');
+  const statusDiv = parentEl.querySelector("#status");
+  const usersUl = parentEl.querySelector("#users-list");
+  const postsUl = parentEl.querySelector("#posts-list");
+  const newUserForm = parentEl.querySelector("#new-user-form");
+  const newUserDiv = parentEl.querySelector("#new-user");
 
-    return { statusDiv, usersUl, postsUl, newUserForm, newUserDiv };
+  return { statusDiv, usersUl, postsUl, newUserForm, newUserDiv };
 };
 
 /* QUESTION 5
@@ -42,17 +42,16 @@ EXPECTED FUNCTION OUTPUT:
 </div>
 */
 export const renderStatus = (statusDiv, statusInfoObj) => { //statusInfoObj is the obj that our checkResponseStatus() func returns
-  const h2 = document.createElement('h2')
-  h2.id = 'status-heading';
+  const h2 = document.createElement("h2");
+  h2.id = "status-heading";
   h2.textContent = `Info on - ${statusInfoObj.url}`;
 
-  const p = document.createElement('p');
-  p.id = 'status-code';
-  p.textContent = `Status code: ${statusInfoObj.status}, ${statusInfoObj.ok ? 'OK!' : 'FAIL!'}`
+  const p = document.createElement("p");
+  p.id = "status-code";
+  p.textContent = `Status code: ${statusInfoObj.status}, ${statusInfoObj.ok ? "OK!" : "FAIL!"}`;
 
   statusDiv.append(h2, p); //appending newly created els to the statusDiv- noting that append was used over appendChild as the latter can only append 1 el at a time
 };
-
 
 /* QUESTION 6
 FUNCTION ARGS:
@@ -65,18 +64,18 @@ EXPECTED FUNCTION OUTPUT:
 </li>
 */
 export const renderUsers = (usersUl, users) => { //users is the arr of objs that our getUsers() func returns
-  usersUl.innerHTML = '';
+  usersUl.innerHTML = "";
   users.forEach((user) => { //iterating over each user obj in the given arr of users, will access their id + username properties by dot notation
-    const li = document.createElement('li');
-    li.classList.add('user-card'); //adding a new class, .user-card, to each newly created user li
+    const li = document.createElement("li");
+    li.classList.add("user-card"); //adding a new class, .user-card, to each newly created user li
 
-    const button = document.createElement('button');
+    const button = document.createElement("button");
     button.dataset.userId = user.id; //setting dataset automatically converts camelCase in JavaScript to the correct kebab-case in HTML- could also have done button.setAttribute('data-user-id', user.id) but this is better practice in this case
     button.textContent = `Load ${user.username}'s posts`;
 
     li.appendChild(button);
     usersUl.appendChild(li);
- })
+  });
 };
 
 /* QUESTION 7
@@ -91,21 +90,20 @@ EXPECTED FUNCTION OUTPUT:
 </li>
 */
 export const renderPosts = (postsUl, posts) => { //posts is the arr of objs that our getUserPosts() func returns
-  postsUl.innerHTML = ''; //clearing the posts ul to render a new post on 'click' listener later
+  postsUl.innerHTML = ""; //clearing the posts ul to render a new post on 'click' listener later
   posts.forEach((post) => { //iterating over each user's post obj
-    const li = document.createElement('li');
-    
-    const h2 = document.createElement('h2');
+    const li = document.createElement("li");
+
+    const h2 = document.createElement("h2");
     h2.textContent = post.title; //post.title is already a str so no need to do string interpolation
-    
-    const p = document.createElement('p');
+
+    const p = document.createElement("p");
     p.textContent = post.body;
-    
+
     li.append(h2, p);
     postsUl.appendChild(li);
- })
+  });
 };
-
 
 /* QUESTION 8
 FUNCTION ARGS:
@@ -117,11 +115,11 @@ EXPECTED FUNCTION OUTPUT:
 <p>chuck@gmail.com</p>
 */
 export const renderNewUser = (newUserDiv, newUserInfo) => { //users is the obj that our getUsers() func returns
-  newUserDiv.innerHTML = '';
-  const h2 = document.createElement('h2');
+  newUserDiv.innerHTML = "";
+  const h2 = document.createElement("h2");
   h2.textContent = newUserInfo.username;
 
-  const p = document.createElement('p');
+  const p = document.createElement("p");
   p.textContent = newUserInfo.email;
 
   newUserDiv.append(h2, p);

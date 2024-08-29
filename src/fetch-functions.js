@@ -1,7 +1,7 @@
 //Lesson 3.0.1 Assignment: Fetch by Eileen
 
-const userUrl = 'https://jsonplaceholder.typicode.com/users'
- 
+const userUrl = "https://jsonplaceholder.typicode.com/users";
+
 /* QUESTION 1: use the following to pass the test
  URL = https://jsonplaceholder.typicode.com/users
  HTTP VERB = GET
@@ -23,12 +23,12 @@ const userUrl = 'https://jsonplaceholder.typicode.com/users'
 //q1 solution simplified without comments
 export const checkResponseStatus = () => {
   return fetch(userUrl)
- .then(response => ({
-      'ok':response.ok,
-      'status': response.status,
-      'url': response.url
- }))
- .catch((err) => console.error(`checkResponseStatus() error! Message: ${err.message}`))
+    .then((response) => ({
+      ok: response.ok,
+      status: response.status,
+      url: response.url,
+    }))
+    .catch((err) => console.error(`checkResponseStatus() error! Message: ${err.message}`));
 };
 
 /* QUESTION 2: use the following to pass the test
@@ -55,9 +55,9 @@ export const checkResponseStatus = () => {
 //q2 solution simplified without comments
 export const getUsers = () => {
   return fetch(userUrl)
- .then((response) => response.json())
- .then((users) => users)
- .catch((err) => console.error(`getUsers() error! Message: ${err.message}`))
+    .then((response) => response.json())
+    .then((users) => users)
+    .catch((err) => console.error(`getUsers() error! Message: ${err.message}`));
 };
 
 /* QUESTION 3: use the following to pass the test
@@ -80,11 +80,10 @@ export const getUsers = () => {
 //q3 solution (simplified without comments)
 export const getUserPosts = (userId, maxNumPosts = 3) => {
   return fetch(`${userUrl}/${userId}/posts`)
- .then((response) => response.json())
- .then((posts) => posts.slice(0, maxNumPosts))
- .catch((err) => console.error(`getUserPosts() error! Message: ${err.message}`))
+    .then((response) => response.json())
+    .then((posts) => posts.slice(0, maxNumPosts))
+    .catch((err) => console.error(`getUserPosts() error! Message: ${err.message}`));
 };
-
 
 /* QUESTION 4: use the following to pass the test
  URL = https://jsonplaceholder.typicode.com/users
@@ -114,11 +113,11 @@ export const getUserPosts = (userId, maxNumPosts = 3) => {
 //q4 solution simplified without comments
 export const createNewUser = (newUserData) => {
   return fetch(userUrl, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(newUserData),
- })
- .then((response) => response.json())
- .then((newUser) => newUser)
- .catch((err) => console.error(`createNewUser() error! Message: ${err.message}`))
-}
+  })
+    .then((response) => response.json())
+    .then((newUser) => newUser)
+    .catch((err) => console.error(`createNewUser() error! Message: ${err.message}`));
+};

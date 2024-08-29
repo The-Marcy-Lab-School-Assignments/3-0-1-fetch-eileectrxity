@@ -1,13 +1,13 @@
-import './style.css';
+import "./style.css";
 import {
   checkResponseStatus,
   getUserPosts,
   createNewUser,
-  getUsers
-} from './fetch-functions.js';
-import app from './app'
+  getUsers,
+} from "./fetch-functions.js";
+import app from "./app";
 
-const appDiv = document.querySelector('#app');
+const appDiv = document.querySelector("#app");
 app(appDiv);
 
 // Ordinarily this wouldn't be here, we're adding it to make it easier to see your fetch functions
