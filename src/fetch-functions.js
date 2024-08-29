@@ -60,7 +60,29 @@ export const getUsers = () => {
  .catch((err) => console.error(`getUsers() error! Message: ${err.message}`))
 };
 
-export const getUserPosts = () => {
+/* QUESTION 3: use the following to pass the test
+ URL = https://jsonplaceholder.typicode.com/users/{userId}/posts
+ HTTP VERB = GET
+ FUNCTION ARGS: (userId: number, maxNumPosts: number - default to 3)
+ FUNCTION RETURN: a promise containing an arr of posts that belong to the given user, as identified by their id number. must limit the num of posts by maxNumPosts, with a default value of 3
+*/ //q3 working solution with comments- IGNORE
+// export const getUserPosts = () => {
+//   return fetch(userUrl) //calling fetch func on the user posts API url to return a promise
+//     .then((response) => { //the fetch func promise resolves to this response value containing all posts by a specified user (user id passed in as an arg)
+//       if (!response.ok) { //guard clause in case HTTP status code is outside of successful 200-299 range
+//         throw new Error(`HTTP response failed. ${response.status} ${response.statusText}`); //new err thrown to be caught by the .catch() block
+//       } else return response.json(); //parsing + returning a new resolved promise of all the posts by an id'd user
+//     })
+//     .then(posts => posts.slice(0, maxNumPosts)) //returning a copy of the specified user's posts arr, limiting it to the maxNumPosts
+//     .catch((err) => console.error(`getUserPosts() error! Message: ${err.message}`)) //handling ny errors that occur + logging an error msg
+// };
+
+//q3 solution (simplified without comments)
+export const getUserPosts = (userId, maxNumPosts = 3) => {
+  return fetch(`${userUrl}/${userId}/posts`)
+ .then((response) => response.json())
+ .then((posts) => posts.slice(0, maxNumPosts))
+ .catch((err) => console.error(`getUserPosts() error! Message: ${err.message}`))
 };
 
 export const createNewUser = () => {

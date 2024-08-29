@@ -60,8 +60,8 @@
       "FeFuTe2": 1,
       "FeFuTe3": 1,
       "FeFuTe4": 1,
-      "FeFuTe5": 0,
-      "FeFuTe6": 0,
+      "FeFuTe5": 1,
+      "FeFuTe6": 1,
       "FeFuTe7": 0,
       "FeFuTe8": 0
     },
@@ -74,8 +74,8 @@
   },
   "humanReadable": {
     "Render Functions Tests": "0/8",
-    "finalTestScore": "FINAL SCORE: 4/20",
-    "Fetch Function Tests": "4/8",
+    "finalTestScore": "FINAL SCORE: 6/20",
+    "Fetch Function Tests": "6/8",
     "App Tests": "0/4"
   }
 }
