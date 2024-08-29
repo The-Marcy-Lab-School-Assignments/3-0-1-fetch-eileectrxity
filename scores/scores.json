@@ -46,8 +46,8 @@
   },
   "testScores": {
     "Render Functions Tests": {
-      "ReFuTe1": 0,
-      "ReFuTe2": 0,
+      "ReFuTe1": 1,
+      "ReFuTe2": 1,
       "ReFuTe3": 0,
       "ReFuTe4": 0,
       "ReFuTe5": 0,
@@ -73,8 +73,8 @@
     }
   },
   "humanReadable": {
-    "Render Functions Tests": "0/8",
-    "finalTestScore": "FINAL SCORE: 8/20",
+    "Render Functions Tests": "2/8",
+    "finalTestScore": "FINAL SCORE: 10/20",
     "Fetch Function Tests": "8/8",
     "App Tests": "0/4"
   }
