@@ -53,7 +53,30 @@ export const renderStatus = (statusDiv, statusInfoObj) => { //statusInfoObj is t
   statusDiv.append(h2, p); //appending newly created els to the statusDiv- noting that append was used over appendChild as the latter can only append 1 el at a time
 };
 
-export const renderUsers = () => {
+
+/* QUESTION 6
+FUNCTION ARGS:
+ usersUl: an HTMLElement of a ul that this func will add new lis to, one for each user in the arr
+ users: an arr of user objs, each will have a LOT of properties from the API, but the only ones we care about for this func are username and id
+EXPECTED FUNCTION OUTPUT:
+<!--  where users = [{ id: 1, username: "Bret" }, { id: 2, username: "Antonette" }, etc...] -->
+<li class="user-card">
+ <button data-user-id="1">Load Bret's posts</button>
+</li>
+*/
+export const renderUsers = (usersUl, users) => { //users is the arr of objs that our getUsers() func returns
+  usersUl.innerHTML = '';
+  users.forEach((user) => { //iterating over each user obj in the given arr of users, will access their id + username properties by dot notation
+    const li = document.createElement('li');
+    li.classList.add('user-card'); //adding a new class, .user-card, to each newly created user li
+
+    const button = document.createElement('button');
+    button.dataset.userId = user.id; //setting dataset automatically converts camelCase in JavaScript to the correct kebab-case in HTML- could also have done button.setAttribute('data-user-id', user.id) but this is better practice in this case
+    button.textContent = `Load ${user.username}'s posts`;
+
+    li.appendChild(button);
+    usersUl.appendChild(li);
+ })
 };
 
 export const renderPosts = () => {
