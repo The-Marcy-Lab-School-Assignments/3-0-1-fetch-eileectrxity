@@ -106,5 +106,23 @@ export const renderPosts = (postsUl, posts) => { //posts is the arr of objs that
  })
 };
 
-export const renderNewUser = () => {
-}
+
+/* QUESTION 8
+FUNCTION ARGS:
+ newUserDiv: an HTMLElement of a div that we will mutate and add our newUserInfo
+ newUserInfo: an obj with at least a username and email property, both are strs
+EXPECTED FUNCTION OUTPUT:
+<!--  where newUserInfo = { username: "max12", email: "max@gmail.com", id: 11 } -->
+<h2>chuck12</h2>
+<p>chuck@gmail.com</p>
+*/
+export const renderNewUser = (newUserDiv, newUserInfo) => { //users is the obj that our getUsers() func returns
+  newUserDiv.innerHTML = '';
+  const h2 = document.createElement('h2');
+  h2.textContent = newUserInfo.username;
+
+  const p = document.createElement('p');
+  p.textContent = newUserInfo.email;
+
+  newUserDiv.append(h2, p);
+};
